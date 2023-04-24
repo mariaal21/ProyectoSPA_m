@@ -7,20 +7,22 @@ export const useForm = (estadoInicial = '') => {
     const [validate, setValidate] = useState({});
 
   
-    const handlerSubmit = (ev, formType, getText) => {
+    const handlerSubmit = (ev, formType) => {
 
       ev.preventDefault();
 
       let validateOk;
+   
 
-      const data = serializeForm(ev.target);
+      const data = (ev.target);
 
-      if (formType == 'find') {
+      if (data) {
 
         validateOk = validateFormFind(data, setValidate);
-        if (!validateOk) return
+        if (!validateOk) return 
   
-        getText(data.findText);
+        findText(data.findText);
+        // data.search
     } 
   }
 
